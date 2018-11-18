@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<h1 th:text="${title}">Default Title</h1>
+<!-- If the Model was empty-->
+<!--<p th:unless="${cheeses}"> no cheese :</p>-->
+<!-- If the Model doesn't send data and/or ArrayList was empty-->
+<p th:unless="${cheeses} and ${cheeses.size()}"> no cheese :(</p>
+
+<a href="/cheese/add">Add Cheese</a>
+<!-- cheese will be the iterator variable-->
+    <!-- the dollar sign curly brackets tells thymeleaf to look in the Model for this value ==> cheese (list)-->
+    <!-- It will iterate over the list-->
+    <ul>
+        <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
+    </ul>
+    <!--th:each attribute ==> (a for loop) it tells thymeleaf to repeat the
+    current element <li> for each item (cheese) in the list (cheeses) -->
+    <!-- In the <li> tag that is being repeated ==> th:text attribute ==>
+    insert the text that is the value of the iterator variable cheese-->
+
+
+</body>
+</html>
+
+<!--video part1 setup: https://youtu.be/W80csGBWpBw?t=849-->
+
+<!--video part2 functionality: https://youtu.be/0z_hjs5XRy0?t=86-->
