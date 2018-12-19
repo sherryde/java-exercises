@@ -22,8 +22,8 @@
         for the value of cheeses.-->
         <!--2nd th: - A new li to access the text/data by referencing the iterator variable cheese-->
     <tr th:each="cheese : ${cheeses}">
-        <td th:text="${cheese.key}"></td>
-        <td th:text="${cheese.value}"></td>
+        <td th:text="${cheese.name}"></td>
+        <td th:text="${cheese.description}"></td>
     </tr>
 
 </table>
