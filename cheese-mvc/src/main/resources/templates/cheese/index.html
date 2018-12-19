@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title th:text="${title}">Title</title>
-</head>
-<body>
-    <h1 th:text="${title}">My Cheese</h1>
-    <!-- unless cheeses exist and cheeses size is not zero-->
-    <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
+<head th:replace="fragments :: head"></head>
 
-    <a href="/cheese/add">Add Cheese</a>
-    <ul>
+<body class="container body-content">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<!-- unless cheeses exist and cheeses size is not zero-->
+<p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
         <!-- 1st th: - each (for loop) an iterator variable cheese :
         dollar sign/curly brackets tells thymeleaf to look in the model
         for the value of cheeses.-->
         <!--2nd th: - A new li to access the text/data by referencing the iterator variable cheese-->
-        <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
-    </ul>
+    <tr th:each="cheese : ${cheeses}">
+        <td th:text="${cheese.key}"></td>
+        <td th:text="${cheese.value}"></td>
+    </tr>
+
+</table>
 
 </body>
 </html>
