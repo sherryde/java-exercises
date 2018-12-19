@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title th:text="${title}">Title</title>
 </head>
 <body>
-<h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}">My Cheese</h1>
 
-<form method="post"> <!-- by leaving off the action the form defaults to the same page-->
-    <!---->
-    <input type="text" name="cheeseName"/>
+<form method="post"> <!-- when action="someURL" attribute is left off, the default action will submit to the same URL the form is submitted ie. cheese/add-->
+    <input type="text" name="cheeseName" />
     <input type="submit" value="Add Cheese" />
 </form>
 
